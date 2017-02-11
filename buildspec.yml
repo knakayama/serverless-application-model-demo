@@ -4,13 +4,17 @@ phases:
   install:
     commands:
       - pip install -U pip
+      - cd src/handlers/pure-python && pip install -r requirements.txt -t vendored
+      - cd src/handlers/non-pure-python1 && pip install -r requirements.txt -t vendored
+      - cd src/handlers/non-pure-python2 && pip install -r requirements.txt -t vendored
   pre_build:
     commands:
       - aws configure set default.region $AWS_REGION
   #    - aws s3 sync s3://$S3/${CODEBUILD_BUILD_ID%:*} .serverless
   build:
     commands:
-      - make all env=$ENV
+      - make package env=$ENV
+      - make deploy env=$ENV
 
 #artifacts:
 #  files:
