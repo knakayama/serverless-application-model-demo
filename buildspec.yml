@@ -1,9 +1,9 @@
 version: 0.1
 
 phases:
-  #install:
-  #  commands:
-  #    - npm install -g serverless
+  install:
+    commands:
+      - pip install -U pip
   pre_build:
     commands:
       - aws configure set default.region $AWS_REGION
