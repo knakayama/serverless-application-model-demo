@@ -1,0 +1,3 @@
+Env=Var2
+Timezone=Asia/Seoul
+Url=http://3.bp.blogspot.com/-vk0LMKh8FAE/WI1zWAowOQI/AAAAAAABBYE/Uc2w7rK1-dgHzghomKwHoXNVJ-evy67WgCLcB/s800/yokokara_shitsurei.png

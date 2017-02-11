@@ -1,0 +1,3 @@
+Env=Var1
+Timezone=Asia/Taipei
+Url=http://3.bp.blogspot.com/-fQOCSaHHl_8/U7O61b5i-uI/AAAAAAAAiTo/3AOyCEbtMIA/s800/tatemono_hakubutsukan.png

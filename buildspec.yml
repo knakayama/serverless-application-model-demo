@@ -1,0 +1,18 @@
+version: 0.1
+
+phases:
+  #install:
+  #  commands:
+  #    - npm install -g serverless
+  pre_build:
+    commands:
+      - aws configure set default.region $AWS_REGION
+  #    - aws s3 sync s3://$S3/${CODEBUILD_BUILD_ID%:*} .serverless
+  build:
+    commands:
+      - make all env=$ENV
+
+#artifacts:
+#  files:
+#    - .serverless/*
+#  discard-paths: yes

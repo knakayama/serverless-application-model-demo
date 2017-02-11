@@ -1,0 +1,67 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Description: Serverless Application Model Test
+
+Parameters:
+  Env:
+    Description: Env
+    Type: String
+    Default: Value
+  Timezone:
+    Description: Timezone
+    Type: String
+    Default: Asia/Tokyo
+  Url:
+    Description: Url
+    Type: String
+    Default: http://2.bp.blogspot.com/-AOWtFWRcS1c/WIW-RWvePWI/AAAAAAABBUA/goPgoeVoKtU3y6gjEn7Nhy4JTgnZhLzTgCLcB/s800/osyaberi_ojiisan.png
+
+Resources:
+  Python:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/python/handler.hello
+      Runtime: python2.7
+      Environment:
+        Variables:
+          Env: !Ref Env
+  PurePython:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/pure-python/handler.hello
+      Runtime: python2.7
+      Environment:
+        Variables:
+          Timezone: !Ref Timezone
+  NonPurePython1:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/non-pure-python1/handler.hello
+      Runtime: python2.7
+      Environment:
+        Variables:
+          Url: !Ref Url
+  NonPurePython2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/non-pure-python2/handler.hello
+      Runtime: python2.7
+
+Outputs:
+  PythonLambdaFunctionName:
+    Value: !Ref Python
+  PythonLambdaFunctionArn:
+    Value: !GetAtt Python.Arn
+  PurePythonLambdaFunctionName:
+    Value: !Ref PurePython
+  PurePythonLambdaFunctionArn:
+    Value: !GetAtt PurePython.Arn
+  NonPurePython1LambdaFunctionName:
+    Value: !Ref NonPurePython1
+  NonPurePython1LambdaFunctionArn:
+    Value: !GetAtt NonPurePython1.Arn
+  NonPurePython2LambdaFunctionName:
+    Value: !Ref NonPurePython2
+  NonPurePython2LambdaFunctionArn:
+    Value: !GetAtt NonPurePython2.Arn
